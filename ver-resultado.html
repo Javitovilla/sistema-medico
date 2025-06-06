@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizador de Resultados</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .header {
+            background: #0078d7;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .header img {
+            height: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .result-content {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #ccc;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/logo.png" alt="Logo Clínica">
+        <h2>Visualizador de Resultados</h2>
+        <button class="btn" onclick="location.href='resultados.html'">Volver</button>
+    </div>
+    
+    <div class="container">
+        <h3 id="result-title">Cargando resultado...</h3>
+        <div class="result-content" id="result-content">
+            
+        </div>
+        <button class="btn btn-download" 
+                onclick="window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '_blank')">Descargar PDF</button>
+    </div>
+
+    <script>
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const examen = urlParams.get('examen');
+        
+        // Mostrar contenido según el examen
+        document.getElementById('result-title').textContent = examen === 'hematologia' 
+            ? 'Resultado de Hematología Completa' 
+            : 'Resultado de Radiografía Torácica';
+            
+        document.getElementById('result-content').innerHTML = examen === 'hematologia'
+            ? `<p><strong>Hemoglobina:</strong> 14.2 g/dL (Normal: 12-16 g/dL)</p>
+               <p><strong>Hematocrito:</strong> 42% (Normal: 36-48%)</p>
+               <p><strong>Leucocitos:</strong> 6.5 x 10³/μL (Normal: 4-11 x 10³/μL)</p>`
+            : `<p><strong>Tipo:</strong> Radiografía PA de Tórax</p>
+               <p><strong>Hallazgos:</strong> Campos pulmonares libres. Silueta cardíaca normal.</p>
+               <p><strong>Impresión:</strong> Sin hallazgos patológicos agudos.</p>`;
+               
+        function getPdfUrl() {
+            return examen === 'hematologia' 
+                ? 'assets/hematologia.pdf' 
+                : 'assets/radiografia.pdf';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mis Resultados</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .header {
+            background: #0078d7;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .header img {
+            height: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .result-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .result-card h3 {
+            color: #0078d7;
+            margin-top: 0;
+        }
+        .btn {
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-download {
+            background: #28a745;
+        }
+        .btn-group {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="img/logo.png" alt="Logo Clínica">
+        <h2>Resultados Médicos</h2>
+        <button class="btn" onclick="location.href='index.html'">Cerrar Sesión</button>
+    </div>
+    
+    <div class="container">
+        <div class="result-card">
+            <h3>Hematología Completa</h3>
+            <p><strong>Fecha:</strong> 15/05/2024</p>
+            <p><strong>Tipo:</strong> Examen de Laboratorio</p>
+            <div class="btn-group">
+                <button class="btn" onclick="location.href='ver-resultado.html?examen=hematologia'">Ver Resultado</button>
+                <button class="btn btn-download" onclick="window.open('assets/hematologia.pdf', '_blank')">Descargar PDF</button>
+            </div>
+        </div>
+        
+        <div class="result-card">
+            <h3>Radiografía Torácica</h3>
+            <p><strong>Fecha:</strong> 10/05/2024</p>
+            <p><strong>Tipo:</strong> Imagen Diagnóstica</p>
+            <div class="btn-group">
+                <button class="btn" onclick="location.href='ver-resultado.html?examen=radiografia'">Ver Resultado</button>
+                <button class="btn btn-download" 
+                        onclick="window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '_blank')">Descargar PDF</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
