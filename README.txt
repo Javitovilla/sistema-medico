@@ -17,12 +17,30 @@
 - ✅ Descarga de PDFs
 - ✅ Interfaz responsive
 
-## Estructura del proyecto
+# 🏥 Sistema de Gestión de Resultados Médicos
+
+![Vista Previa](src/img/logo.png)
+
+Plataforma web segura para visualización de resultados médicos digitales, cumpliendo con estándares HIPAA y usabilidad móvil.
+
+## 📦 Estructura del Proyecto
+
 ```plaintext
 sistema-medico/
-├── index.html            # Página de login
-├── resultados.html       # Lista de resultados
-├── ver-resultado.html    # Detalle de examen
-├── img/                  # Assets visuales
-├── assets/               # Documentos médicos
-└── README.md             # Esta documentación
+├── src/                    # Código fuente principal
+│   ├── css/                # Estilos
+│   ├── js/                 # Lógica de la aplicación
+│   ├── assets/             # PDFs e imágenes médicas
+│   └── *.html              # Vistas
+├── pruebas/                # Sistema de pruebas
+│   ├── unitarias/          # Jest
+│   ├── e2e/                # Cypress
+│   └── usabilidad/         # Lighthouse
+├── docs/                   # Documentación
+└── .github/                # CI/CD (GitHub Actions)
+  
+## 🧪 Sistema de Pruebas
+
+### Pruebas Unitarias
+```bash
+cd pruebas/unitarias && npx jest
